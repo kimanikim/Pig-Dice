@@ -1,23 +1,100 @@
-// function rollDice() {
-//   var die1 = document.getElementById("die1");
-//   var die2 = document.getElementById("die2");
-//   var status = document.getElementById("status");
-//   var d1 = Math.floor(Math.random() * 6) + 1;
-//   var d2 = Math.floor(Math.random() * 6) + 1;
-//   var diceTotal = d1 + d2;
-//   die1.innerHTML = d1;
-//   die2.innerHTML = d2;
-//   status.innerHTML = "You have rolled " + diceTotal + ".";
-//   if (d1 == d2) {
-//     status.innerHTML += " Hoooooooray! You got a doouble you get a free turn!!";
-//   }
-// }
+var dice = {
+  sides: 6,
+  roll: function() {
+    var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+    return randomNumber;
+  }
+};
 
-// function rollDice() {
-//   document.getElementById("die1").innerHTML = Math.floor(Math.random() * 6 + 1);
-//   document.getElementById("die2").innerHTML = Math.floor(Math.random() * 6 + 1);
-// }
+$(document).ready(function() {
+  //Player 1
+  var dice1 = 0;
+  var summation1 = 0;
+  var total1 = 0;
+  $("#hold2").attr("disabled", true);
+  $("#roll2").attr("disabled", true);
 
-function rollDice(el) {
-  el.innerHTML = Math.floor(Math.random() * 6 + 1);
-}
+  $("#roll1").click(function() {
+    dice1 = dice.roll();
+    if (dice1 === 1) {
+      dice1 = 0;
+      summation1 = 0;
+      $("#hold1").attr("disabled", true);
+      $("#roll1").attr("disabled", true);
+
+      $("#hold2").attr("disabled", false);
+      $("#roll2").attr("disabled", false);
+      alert("Dice has landed on a 1,turn goes to next player");
+    }
+    $("#dice1").text(dice1);
+
+    summation1 += dice1;
+    $("#summation1").text(summation1);
+  });
+
+  $("#hold1").click(function() {
+    total1 += summation1;
+
+    $("#total1").text(total1);
+    if (total1 >= 100) {
+      alert("Player 1 Has Won!");
+    } else {
+      dice1 = 0;
+      summation1 = 0;
+      $("#dice1").text(dice1);
+      $("#summation1").text(summation1);
+
+      $("#roll1").attr("disabled", true);
+      $("#hold1").attr("disabled", true);
+
+      $("#roll2").attr("disabled", false);
+      $("#hold2").attr("disabled", false);
+      alert("Next Players Turn");
+    }
+  });
+
+  //Player 2
+  var dice2 = 0;
+  var summation2 = 0;
+  var total2 = 0;
+
+  $("#roll2").click(function() {
+    dice2 = dice.roll();
+    if (dice2 === 1) {
+      dice2 = 0;
+      summation2 = 0;
+      $("#hold2").attr("disabled", true);
+      $("#roll2").attr("disabled", true);
+
+      $("#hold1").attr("disabled", false);
+      $("#roll1").attr("disabled", false);
+
+      alert("Dice has landed on a 1,turn goes to next player");
+    }
+    $("#dice2").text(dice2);
+
+    summation2 += dice2;
+    $("#summation2").text(summation2);
+  });
+
+  $("#hold2").click(function() {
+    total2 += summation2;
+
+    $("#total2").text(total2);
+    if (total2 >= 100) {
+      alert("Player 1 Has Won!");
+    } else {
+      dice2 = 0;
+      summation2 = 0;
+      $("#dice2").text(dice2);
+      $("#summation2").text(summation2);
+
+      $("#roll2").attr("disabled", true);
+      $("#hold2").attr("disabled", true);
+
+      $("#roll1").attr("disabled", false);
+      $("#hold1").attr("disabled", false);
+      alert("Next Players Turn");
+    }
+  });
+});

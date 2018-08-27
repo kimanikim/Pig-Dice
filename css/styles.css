@@ -1,102 +1,10 @@
 body {
-  padding-bottom: 50px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5;
+  background-color: linen;
 }
 
 header {
   height: 100vh;
   width: 100%;
-  background-image: url("../Images/skamath-HD-Wallpapers1.jpg");
-  opacity: 0.9;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-div.dice {
-  float: left;
-  width: 300px;
-  height: 200px;
-  background: rgba(126, 126, 126, 0.493);
-  border: 1px solid black;
-  border-radius: 6px;
-  padding: 10px;
-  font-size: 24px;
-  text-align: center;
-  margin: 5px;
-  color: white;
-}
-
-#jumbo-dice {
-  background: white;
-}
-
-h1 {
-  text-align: center;
-}
-
-/* .main {
-  position: absolute;
-  width: 1200px;
-  margin-left: 0px;
-  margin-top: 0px;
-  color: white;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 275px;
-  font-size: 100px;
-} */
-
-img {
-  width: 100%;
-  height: 100%;
-}
-
-.section1 {
-  width: 100%;
-  height: 30vh;
-  background-image: url("../Images/Dark-blue-wallpaper-HD-download.jpg");
-  background-attachment: fixed;
+  background-image: url("../Images/cTagrlr.jpg");
   background-repeat: no-repeat;
-}
-
-.section2 {
-  width: 100%;
-  height: 30vh;
-  background-image: url("../Images/wallpaper.wiki-Picture-of-Adirondack-Wallpaper-PIC-WPC0014207.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  opacity: 0.4;
-}
-
-.sec-text {
-  color: white;
-  text-align: center;
-  padding-top: 120px;
-}
-
-#roll {
-  background-color: coral;
-  color: white;
-  margin-left: 45px;
-  margin-right: 30px;
-}
-
-#roll:hover {
-  background: greenyellow;
-  color: black;
-}
-
-#die1,
-#die2 {
-  background-color: beige;
-  color: black;
-  margin-top: 30px;
-  text-align: center;
-}
-
-#hold:hover {
-  background-color: black;
-  color: white;
 }
